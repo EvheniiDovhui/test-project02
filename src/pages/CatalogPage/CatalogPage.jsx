@@ -1,42 +1,51 @@
-// CatalogPage.jsx
-
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchCampers } from '../../redux/campersSlice'
-import CamperCard from '../../components/CamperCard/CamperCard'
+import { selectCampers, selectStatus, selectError } from '../../redux/selectors'
+import styles from './CatalogPage.module.css'
+import Loader from '../../components/Loader/Loader'
+import Sorting from '../../components/Sorting/Sorting'
+import CamperList from '../../components/CamrersList/CampeList'
 
 const CatalogPage = () => {
 	const dispatch = useDispatch()
-	const campers = useSelector(state => state.campers.campers)
-	const status = useSelector(state => state.campers.status)
-	const error = useSelector(state => state.campers.error)
-	console.log(campers)
-	console.log(status)
-	console.log(error)
+
+	const campers = useSelector(selectCampers)
+	const status = useSelector(selectStatus)
+	const error = useSelector(selectError)
+
+	const [filteredCampers, setFilteredCampers] = useState([])
 
 	useEffect(() => {
 		if (status === 'idle') {
 			dispatch(fetchCampers())
 		}
-	}, [status, dispatch])
+	}, [dispatch, status])
+
+	useEffect(() => {
+		setFilteredCampers(campers)
+	}, [campers])
 
 	if (status === 'loading') {
-		return <div>Loading...</div>
+		return (
+			<div className={styles.container}>
+				<Loader />
+			</div>
+		)
 	}
 
 	if (status === 'failed') {
-		return <div>{error}</div>
+		return <div className={styles.container}>Error: {error}</div>
 	}
 
 	return (
-		<div>
-			<h1>Catalog</h1>
-			<div className='camper-list'>
-				{campers.map(camper => (
-					<CamperCard key={camper._id} camper={camper} />
-				))}
+		<div className={styles.containerWrapper}>
+			<div className={styles.containerSorting}>
+				<Sorting campers={campers} onFilterChange={setFilteredCampers} />
 			</div>
-			<button onClick={() => dispatch(fetchCampers())}>Load more</button>
+			<div className={styles.container}>
+				<CamperList campers={filteredCampers} />
+			</div>
 		</div>
 	)
 }

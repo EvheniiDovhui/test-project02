@@ -1,106 +1,86 @@
-.card {
+.camperCard {
 	display: flex;
 	flex-direction: row;
-	border: 1px solid #ddd;
-	border-radius: 8px;
-	overflow: hidden;
-
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-	align-items: center;
-	padding: 8px;
-}
-
-.imageWrapper {
-	width: 100%;
-	height: 200px;
-	overflow: hidden;
 }
 
 .image {
-	height: 100%;
+	margin-right: 1rem;
 	object-fit: cover;
 }
+.button {
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+}
+.IconHeart {
+	width: 20px;
+	height: 20px;
+	fill: transparent;
+	stroke: red;
+	fill: var(--color-button);
+}
 
-.content {
+.IconHeart:hover {
+	fill: var(--color-button-hover);
+}
+
+.IconHeart1 {
+	width: 20px;
+	height: 20px;
+	fill: transparent;
+	stroke: var(--color-icon);
+}
+.IconHeart1:hover {
+	/* fill: var(--color-button-hover); */
+	stroke: var(--color-button-hover);
+}
+
+.camperCard {
+	display: flex;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	overflow: hidden;
+	margin-bottom: 16px;
+	background-color: #fff;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+	width: 200px;
+	height: auto;
+}
+
+.card {
+	flex: 1;
 	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-.header {
+.buttonContainer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 8px;
 }
 
-.name {
-	font-size: 1.25rem;
-	font-weight: bold;
-	margin: 0;
-}
-
-.price {
-	font-size: 1.25rem;
-	color: green;
-	font-weight: bold;
-}
-
-.meta {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin: 8px 0;
-	color: #777;
-}
-
-.reviews {
-	font-size: 0.875rem;
-}
-
-.location {
-	font-size: 0.875rem;
-}
-
-.description {
-	font-size: 0.875rem;
-	color: #555;
-	margin: 8px 0;
-}
-
-.details {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 8px;
-	font-size: 0.875rem;
-	color: #555;
-}
-
-.actions {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-top: 16px;
-}
-
-.favoriteButton {
-	background: none;
+.button {
+	background-color: transparent;
 	border: none;
 	cursor: pointer;
 }
 
-.showMoreButton {
+.buttonShowMore {
 	background-color: #ff5a5f;
 	color: white;
-	border: none;
-	border-radius: 8px;
 	padding: 8px 16px;
+	border: none;
+	border-radius: 4px;
 	cursor: pointer;
+	font-size: 14px;
+	font-weight: bold;
 }
 
-.showMoreButton:hover {
-	background-color: #e04848;
-}
-
-.heartIcon {
-	width: 24px;
-	height: 24px;
+.buttonShowMore:hover {
+	background-color: #e14c4f;
 }

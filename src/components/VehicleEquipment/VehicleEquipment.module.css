@@ -1,0 +1,61 @@
+.vehicleEquipment {
+	width: 360px;
+	margin-bottom: 20px;
+	border-top: 1px solid var(--color-border);
+
+	padding: 10px;
+	background-color: transparent;
+}
+
+.title {
+	margin-bottom: 10px;
+}
+.equipmentList {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	justify-content: space-between;
+}
+
+.IconEquipment {
+	width: 32px;
+	height: 32px;
+	fill: transparent;
+	stroke: var(--color-icon);
+	transition: stroke 0.3s;
+}
+
+.equipmentItem {
+	width: 80px;
+	display: flex;
+	flex-direction: column;
+	padding: 16px;
+	align-items: center;
+	cursor: pointer;
+
+	border: 1px solid var(--color-border);
+	border-radius: 10px;
+	transition: border-color 0.3s;
+}
+
+.equipmentItem:hover {
+	border-color: var(--color-button-hover);
+}
+
+.equipmentItem:hover .IconEquipment {
+	stroke: var(--color-button-hover);
+	border-color: var(--color-button-hover);
+}
+
+.equipmentItem.selected {
+	border-color: var(--color-button-hover);
+}
+
+.equipmentItem.selected .IconEquipment {
+	stroke: var(--color-button-hover);
+}
+
+.label {
+	font-size: 12px;
+	text-align: center;
+}

@@ -1,0 +1,45 @@
+.container {
+	display: flex;
+	flex-direction: column;
+}
+.container {
+	margin-bottom: 16px;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+.name {
+	font-size: 20px;
+	font-weight: bold;
+	color: #333;
+	margin: 0;
+}
+
+.price {
+	font-size: 18px;
+	font-weight: bold;
+	color: #007bff;
+}
+
+.meta {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 14px;
+	color: #666;
+}
+
+.reviews {
+	display: flex;
+	align-items: center;
+}
+
+.location {
+	font-size: 14px;
+	color: #666;
+}

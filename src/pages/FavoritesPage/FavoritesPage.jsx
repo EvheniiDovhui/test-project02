@@ -9,7 +9,7 @@ const FavoritesPage = () => {
 			<h2>My Favorites</h2>
 			<div className='campers-list'>
 				{favorites.map(camper => (
-					<CamperCard key={camper.id} camper={camper} />
+					<CamperCard key={camper._id} camper={camper} />
 				))}
 			</div>
 		</div>

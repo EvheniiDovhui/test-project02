@@ -1,29 +1,40 @@
+/* eslint-disable react/prop-types */
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleFavorite } from '../../redux/campersSlice'
+import { selectFavorites } from '../../redux/selectors'
+import { CamperCardHeader } from '../CamperCardHeaher/CamperCardHeader'
+import { CamperCardDetails } from '../CamperCardDetails/CamperCardDetails'
+
+import styles from './CamperCard.module.css'
+import { IconHeart, IconHeartFilled } from '../../img/icon/icon'
 
 const CamperCard = ({ camper }) => {
 	const dispatch = useDispatch()
-	const favorites = useSelector(state => state.campers.favorites)
-	const isFavorite = favorites.some(fav => fav.id === camper.id)
-	console.log(favorites)
-	console.log(isFavorite)
+	const favorites = useSelector(selectFavorites)
+
+	const isFavorite = favorites.some(fav => fav._id === camper._id)
 
 	const handleFavorite = () => {
 		dispatch(toggleFavorite(camper))
 	}
 
 	return (
-		<div className='camper-card'>
-			<img src={camper.gallery[0]} alt={camper.name} width={200} />
-			<h3>{camper.name}</h3>
-			<p>{camper.description}</p>
-			<button
-				onClick={handleFavorite}
-				style={{ color: isFavorite ? 'red' : 'black' }}
-			>
-				❤️
-			</button>
-			<button>Show more</button>
+		<div className={styles.camperCard}>
+			<img className={styles.image} src={camper.gallery[0]} alt={camper.name} />
+			<div className={styles.card}>
+				<CamperCardHeader camper={camper} />
+				<CamperCardDetails camper={camper} />
+				<div className={styles.buttonContainer}>
+					<button className={styles.button} onClick={handleFavorite}>
+						{isFavorite ? (
+							<IconHeartFilled className={styles.IconHeart} />
+						) : (
+							<IconHeart className={styles.IconHeart1} />
+						)}
+					</button>
+					<button className={styles.buttonShowMore}>Show more</button>
+				</div>
+			</div>
 		</div>
 	)
 }

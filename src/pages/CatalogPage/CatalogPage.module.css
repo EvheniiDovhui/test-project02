@@ -1,0 +1,14 @@
+.containerWrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+
+	margin-top: 4rem;
+}
+
+.campersList {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
