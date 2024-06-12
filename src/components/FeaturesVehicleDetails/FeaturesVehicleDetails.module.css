@@ -1,0 +1,17 @@
+.title {
+	margin-bottom: 8px;
+}
+
+.featureList {
+	padding-top: 8px;
+	border-top: 1px solid var(--color-border);
+}
+
+.featureItem {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 5px;
+	line-height: 1.2;
+	font-size: 16px;
+	font-family: 'Inter-Medium', sans-serif;
+}

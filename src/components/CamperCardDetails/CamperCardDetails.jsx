@@ -4,7 +4,9 @@ import {
 	IconAC,
 	IconAutomatic,
 	IconBeds,
+	IconCD,
 	IconKitchen,
+	IconMicrowave,
 	IconPetrol,
 	IconUser,
 } from '../../img/icon/icon'
@@ -27,30 +29,60 @@ export const CamperCardDetails = ({ camper }) => {
 			</p>
 
 			<div className={styles.details}>
-				<span>
-					<IconUser className={styles.IconDetails} />
-					{camper.adults} adults
+				{(camper.adults && (
+					<span className={styles.feature}>
+						<IconUser className={`${styles.IconDetails} ${styles.IconFill}`} />
+						{camper.adults} adults
+					</span>
+				)) ||
+					null}
+				{(camper.transmission && (
+					<span className={styles.feature}>
+						<IconAutomatic className={styles.IconDetails} />
+						{camper.transmission}
+					</span>
+				)) ||
+					null}
+				{(camper.details.airConditioner && (
+					<span className={styles.feature}>
+						<IconAC className={`${styles.IconDetails} ${styles.IconFill}`} />
+						AC
+					</span>
+				)) ||
+					null}
+				<span className={styles.feature}>
+					<IconPetrol className={`${styles.IconDetails} ${styles.IconFill}`} />
+					{camper.engine}
 				</span>
-				<span>
-					{' '}
-					<IconAutomatic className={styles.IconDetails} />
-					{camper.transmission}
-				</span>
-				<span>
-					<IconPetrol className={styles.IconDetails} /> {camper.engine}
-				</span>
-				<span>
-					{' '}
-					<IconKitchen className={styles.IconDetails} />{' '}
-					{camper.details.kitchen ? 'Kitchen' : 'No Kitchen'}
-				</span>
-				<span>
-					<IconBeds className={styles.IconDetails} /> {camper.details.beds} beds
-				</span>
-				<span>
-					<IconAC className={styles.IconDetails} />{' '}
-					{camper.details.airConditioner ? 'AC' : 'No AC'}
-				</span>
+				{(camper.details.kitchen && (
+					<span className={styles.feature}>
+						<IconKitchen className={styles.IconDetails} />
+						Kitchen
+					</span>
+				)) ||
+					null}
+				{(camper.details.beds && (
+					<span className={styles.feature}>
+						<IconBeds className={styles.IconDetails} /> {camper.details.beds}
+						beds
+					</span>
+				)) ||
+					null}
+
+				{(camper.details.CD && (
+					<span className={styles.feature}>
+						<IconCD className={styles.IconDetails} /> CD
+					</span>
+				)) ||
+					null}
+
+				{(camper.details.microwave && (
+					<span className={styles.feature}>
+						<IconMicrowave className={styles.IconDetails} />
+						microwave
+					</span>
+				)) ||
+					null}
 			</div>
 		</div>
 	)

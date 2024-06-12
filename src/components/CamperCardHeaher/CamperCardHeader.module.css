@@ -16,14 +16,14 @@
 .name {
 	font-size: 20px;
 	font-weight: bold;
-	color: #333;
+	color: var(--color-text);
 	margin: 0;
 }
 
 .price {
 	font-size: 18px;
 	font-weight: bold;
-	color: #007bff;
+	color: var(--color-text);
 }
 
 .meta {
@@ -42,4 +42,37 @@
 .location {
 	font-size: 14px;
 	color: #666;
+}
+
+.button {
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+}
+.IconHeart {
+	width: 20px;
+	height: 20px;
+	fill: transparent;
+	stroke: red;
+	fill: var(--color-button);
+}
+
+.IconHeart:hover {
+	fill: var(--color-button-hover);
+}
+
+.IconHeart1 {
+	width: 20px;
+	height: 20px;
+	fill: transparent;
+	stroke: var(--color-icon);
+}
+.IconHeart1:hover {
+	/* fill: var(--color-button-hover); */
+	stroke: var(--color-button-hover);
+}
+.containerPriceFavorite {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }

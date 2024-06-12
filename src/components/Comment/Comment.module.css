@@ -1,0 +1,55 @@
+.comment {
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.user {
+	display: flex;
+	align-items: center;
+}
+
+.avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	font-weight: bold;
+	color: var(--color-button);
+	background-color: var(--color-background-input);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 10px;
+}
+
+.comment {
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.reviewerName {
+	font-weight: bold;
+}
+
+.rating {
+	color: #f39c12;
+}
+
+.text {
+	margin-top: 5px;
+}
+.starFilled {
+	color: #f39c12;
+	font-size: 20px;
+	margin-right: 2px;
+}
+
+.starEmpty {
+	color: #ccc;
+	font-size: 20px;
+	margin-right: 2px;
+}

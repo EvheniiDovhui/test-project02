@@ -1,22 +1,18 @@
 /* eslint-disable react/prop-types */
-import { useDispatch, useSelector } from 'react-redux'
-import { toggleFavorite } from '../../redux/campersSlice'
-import { selectFavorites } from '../../redux/selectors'
+import React, { useState } from 'react'
+
 import { CamperCardHeader } from '../CamperCardHeaher/CamperCardHeader'
 import { CamperCardDetails } from '../CamperCardDetails/CamperCardDetails'
 
 import styles from './CamperCard.module.css'
-import { IconHeart, IconHeartFilled } from '../../img/icon/icon'
+
+import Modal from '../Modal/Modal'
 
 const CamperCard = ({ camper }) => {
-	const dispatch = useDispatch()
-	const favorites = useSelector(selectFavorites)
+	const [open, setOpen] = useState(false)
 
-	const isFavorite = favorites.some(fav => fav._id === camper._id)
-
-	const handleFavorite = () => {
-		dispatch(toggleFavorite(camper))
-	}
+	const handleOpen = () => setOpen(true)
+	const handleClose = () => setOpen(false)
 
 	return (
 		<div className={styles.camperCard}>
@@ -25,14 +21,10 @@ const CamperCard = ({ camper }) => {
 				<CamperCardHeader camper={camper} />
 				<CamperCardDetails camper={camper} />
 				<div className={styles.buttonContainer}>
-					<button className={styles.button} onClick={handleFavorite}>
-						{isFavorite ? (
-							<IconHeartFilled className={styles.IconHeart} />
-						) : (
-							<IconHeart className={styles.IconHeart1} />
-						)}
+					<button onClick={handleOpen} className={styles.buttonShowMore}>
+						Show more
 					</button>
-					<button className={styles.buttonShowMore}>Show more</button>
+					<Modal open={open} onClose={handleClose} camper={camper}></Modal>
 				</div>
 			</div>
 		</div>

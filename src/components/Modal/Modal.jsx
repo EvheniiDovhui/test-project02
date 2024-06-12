@@ -1,24 +1,52 @@
-// import React from 'react'
+import React, { useState } from 'react'
+import { Modal as MuiModal, Box } from '@mui/material'
+import styles from './Modal.module.css'
 
-// const Modal = ({ camper, onClose }) => {
-// 	return (
-// 		<div className='modal-backdrop' onClick={onClose}>
-// 			<div className='modal' onClick={e => e.stopPropagation()}>
-// 				<button className='close-button' onClick={onClose}>
-// 					X
-// 				</button>
-// 				<h2>{camper.name}</h2>
-// 				<p>{camper.details}</p>
-// 				<form>
-// 					<input type='text' placeholder='Name' required />
-// 					<input type='email' placeholder='Email' required />
-// 					<input type='date' placeholder='Booking Date' required />
-// 					<textarea placeholder='Comment'></textarea>
-// 					<button type='submit'>Book</button>
-// 				</form>
-// 			</div>
-// 		</div>
-// 	)
-// }
+import Features from '../Features/Features'
+import Form from '../Form/Form'
+import Reviews from '../Reviews/Reviews'
+import ModalHeader from '../ModalHeader/ModalHeader'
 
-// export default Modal
+const Modal = ({ open, onClose, camper }) => {
+	const [showFeatures, setShowFeatures] = useState(true)
+
+	const handleToggleFeatures = () => {
+		setShowFeatures(true)
+	}
+
+	const handleToggleReviews = () => {
+		setShowFeatures(false)
+	}
+
+	return (
+		<MuiModal open={open} onClose={onClose}>
+			<Box className={styles.modalContent}>
+				<button className={styles.closeButton} onClick={onClose}>
+					&times;
+				</button>
+				<ModalHeader camper={camper} />
+				<div>
+					<button
+						className={styles.toggleButton}
+						onClick={handleToggleFeatures}
+					>
+						Features
+					</button>
+					<button className={styles.toggleButton} onClick={handleToggleReviews}>
+						Reviews
+					</button>
+				</div>
+				<div className={styles.tabs}>
+					{showFeatures ? (
+						<Features camper={camper} />
+					) : (
+						<Reviews reviews={camper.reviews} />
+					)}
+					<Form />
+				</div>
+			</Box>
+		</MuiModal>
+	)
+}
+
+export default Modal

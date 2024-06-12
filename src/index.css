@@ -1,3 +1,5 @@
+@import './styles/reset.css';
+
 :root {
 	--color-white: rgb(255, 255, 255);
 	--color-gray: rgb(247, 247, 247);
@@ -9,6 +11,10 @@
 
 	--color-icon: rgb(16, 24, 40);
 
+	--color-background-icon: #10182810;
+
+	--color-background-input: #10182810;
+
 	--color-border: rgba(16, 24, 40, 0.125);
 	--color-border-hover: rgb(216, 67, 67);
 
@@ -16,53 +22,24 @@
 	--color-button-hover: rgb(216, 67, 67);
 }
 
-/* Reset styles */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-	margin: 0;
+@font-face {
+	font-family: 'Inter-Medium';
+	src: url('../fonds/Inter-Medium.ttf');
+	font-weight: 500;
+}
+@font-face {
+	font-family: 'Inter-Regular';
+	src: url('../fonds/Inter-Regular.ttf');
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'Inter-SemiBold';
+	src: url('../fonds/Inter-SemiBold.ttf');
+	font-weight: 600;
+	font-style: normal;
 }
 
-p:last-child {
-	margin-bottom: 0;
-}
-
-ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-a {
-	color: currentColor;
-	text-decoration: none;
-}
-
-button {
-	cursor: pointer;
-}
-
-img {
-	display: block;
-	max-width: 100%;
-	height: auto;
-}
-
-select {
-	appearance: none;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	border: none;
-	outline: none;
-}
-.icon {
-	width: 16px;
-	height: 16px;
-	vertical-align: -0.15em;
-	fill: currentColor;
-	overflow: hidden;
+body {
+	font-family: 'Inter-Regular', sans-serif;
+	color: var(--color-text);
 }

@@ -1,0 +1,16 @@
+.features {
+	padding: 10px;
+}
+
+.title {
+	margin-bottom: 10px;
+}
+
+.featureList {
+	list-style: none;
+	padding: 0;
+}
+
+.featureItem {
+	margin-bottom: 5px;
+}
