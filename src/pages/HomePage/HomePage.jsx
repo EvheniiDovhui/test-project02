@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import styles from './HomePage.module.css' // Імпортуйте стилі з вашого модуля
+import styles from './HomePage.module.css'
 
 const HomePage = () => {
 	return (

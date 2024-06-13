@@ -54,7 +54,7 @@ const Sorting = ({ campers = [], onFilterChange = () => {} }) => {
 			<button
 				type='button'
 				className={styles.button}
-				onClick={handleFiltersChange} // Виклик функції тільки при натисканні на кнопку
+				onClick={handleFiltersChange}
 			>
 				Search
 			</button>
